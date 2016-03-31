@@ -19,15 +19,46 @@ int strstr(string haystack, string needle) {
 
 }
 
+int strstr2(string haystack, string needle) {
+
+    int i = 0, j = 0;
+
+
+    while(i<haystack.size()){
+
+        while (j<=needle.size()) {
+
+            if (j == needle.size())
+                return i;
+
+            if (i + j == haystack.size())
+                return -1;
+
+            if (haystack[i + j] == needle[j])
+                j++;
+            else {
+                i++;
+                j=0;
+                break;
+            }
+
+        }
+
+    }
+
+    return -1;
+
+}
+
 
 int main() {
     cout << "Hello, World!" << endl;
 
     // test strings
-    string needle = "acd";
+    string needle = "dfe";
     string haystack = "adfewracdadfasdfasdf";
 
-    int ret = strstr(haystack, needle);
+    int ret = strstr2(haystack, needle);
 
     cout << ret << endl;
 
